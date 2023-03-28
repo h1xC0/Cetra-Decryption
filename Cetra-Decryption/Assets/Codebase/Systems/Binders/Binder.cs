@@ -7,7 +7,7 @@ namespace Codebase.Systems.Binders
     public class Binder<T> : IBinder<T> where T : class
     {
         protected readonly IInstantiator _instantiator;
-        protected readonly Dictionary<Type, IBinding<T>> _bindings = new Dictionary<Type, IBinding<T>>();
+        protected readonly Dictionary<Type, IBinding<T>> _bindings = new ();
 
         public Binder(IInstantiator instantiator)
         {
@@ -72,11 +72,6 @@ namespace Codebase.Systems.Binders
 
         public void Dispose()
         {
-            foreach (var binding in _bindings)
-            {
-                Unbind(binding.Key);
-            }
-            
             _bindings.Clear();
         }
     }

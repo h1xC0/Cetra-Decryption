@@ -8,6 +8,7 @@ namespace Codebase.Installers
     {
         public override void InstallBindings()
         {
+            Container.BindInterfacesTo<CommandBinder>().AsSingle();
             Container.BindInterfacesTo<EventBrokerService>().AsSingle();
             Container.BindInterfacesTo<CommandDispatcher>().AsSingle();
         }
