@@ -8,10 +8,6 @@ namespace Codebase.Systems.CommandSystem
         event Action OnExecuted;
         bool IsRetained { get; }
         void Invoke();
-    }
-
-    public interface ICommand<TPayload> : ICommand where TPayload : ICommandPayload
-    {
         void Invoke(ICommandPayload payload);
     }
 }

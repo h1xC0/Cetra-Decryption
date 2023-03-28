@@ -12,7 +12,7 @@ namespace Codebase.Systems.CommandSystem
         private List<Type> _commandsList = new ();
 
         private int _currentExecutedCommand = 0;
-        private ICommand<ICommandPayload> _currentCommand;
+        private ICommand _currentCommand;
         private ICommandPayload _payload;
 
         public CommandBinding(Type key, IInstantiator instantiator, IListener listener) : base(key, instantiator)
@@ -29,17 +29,17 @@ namespace Codebase.Systems.CommandSystem
             return this;
         }
         
-        private void Execute<TPayload>(TPayload payload) where TPayload : ICommandPayload
+        private void Execute(ICommandPayload payload)
         {
             _payload = payload;
             
-            if (_commandsList.Count >= _currentExecutedCommand)
+            if (_currentExecutedCommand >= _commandsList.Count)
             {
                 _currentExecutedCommand = 0;
                 return;
             }
 
-            _currentCommand = _instantiator.Instantiate(_commandsList[_currentExecutedCommand]) as ICommand<ICommandPayload>;
+            _currentCommand = _instantiator.Instantiate(_commandsList[_currentExecutedCommand]) as ICommand;
             if (_currentCommand == null) return;
 
             _currentCommand.OnExecuted += OnCommandExecuted;

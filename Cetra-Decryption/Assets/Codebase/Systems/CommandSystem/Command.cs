@@ -12,6 +12,11 @@ namespace Codebase.Systems.CommandSystem
         {
             Execute();
         }
+
+        public void Invoke(ICommandPayload payload)
+        {
+            Execute(payload);
+        }
         
         protected void Retain()
         {
@@ -29,27 +34,13 @@ namespace Codebase.Systems.CommandSystem
             
         }
         
-        public void Dispose()
-        {
-        }
-    }
-
-    public class Command<TPayload> : Command, ICommand<TPayload> where TPayload : ICommandPayload
-    {
-        public void Invoke(ICommandPayload payload)
-        {
-            if (payload is null)
-            {
-                Execute();
-                return;
-            }
-            
-            Execute(payload);   
-        }
-
         protected virtual void Execute(ICommandPayload payload)
         {
             
+        }
+        
+        public void Dispose()
+        {
         }
     }
 }
