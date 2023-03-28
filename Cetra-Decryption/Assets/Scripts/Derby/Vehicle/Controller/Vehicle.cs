@@ -7,8 +7,8 @@ namespace Derby.Vehicle.Controller
     {
         [SerializeField] private List<VehicleSpring> _springs;
         [SerializeField] private Rigidbody _vehicleBody;
-        [SerializeField] private float _multiplier;
-
+        [SerializeField] private float _maxForce;
+        [SerializeField] private float _maxDistance;
         private Vector3 GetInput()
         {
             var horizontal = Input.GetAxis("Horizontal");
@@ -20,10 +20,9 @@ namespace Derby.Vehicle.Controller
             return direction;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             var input = GetInput();
-            _vehicleBody.velocity = input * _multiplier;
             WheelsSteering(input);
         }
 
@@ -34,7 +33,7 @@ namespace Derby.Vehicle.Controller
                 RaycastHit hit;
                 if (Physics.Raycast(spring.transform.position, -transform.up, out hit, spring.MaxDistance))
                 {
-                    _vehicleBody.AddForceAtPosition(spring.MaxForce * Time.fixedDeltaTime * transform.up * (spring.MaxDistance - hit.distance) / spring.MaxDistance, spring.transform.position);
+                    _vehicleBody.AddForceAtPosition(_maxForce * Time.fixedDeltaTime * transform.up * (_maxDistance - hit.distance) / _maxDistance, spring.transform.position);
                 }
             }
         }
