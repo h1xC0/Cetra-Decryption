@@ -24,6 +24,10 @@ namespace Codebase.Installers
         {
             commandBinder.Bind<LoadMainMenuSignal>()
                 .To<LoadSceneCommand>();
+
+            commandBinder.Bind<LoadGameSceneSignal>()
+                .To<LoadSceneCommand>()
+                .To<InitializeGameCommand>();
         }
     }
 }
