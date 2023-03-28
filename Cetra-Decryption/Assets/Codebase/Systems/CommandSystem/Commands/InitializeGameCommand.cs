@@ -1,4 +1,3 @@
-using Codebase.Systems.CommandSystem.Payloads;
 using Zenject;
 
 namespace Codebase.Systems.CommandSystem.Commands
@@ -14,7 +13,11 @@ namespace Codebase.Systems.CommandSystem.Commands
         
         protected override void Execute()
         {
+            Retain();
             
+            
+            
+            Release();
         }
     }
 }
