@@ -1,4 +1,6 @@
 using Codebase.ComponentScripts.SpawnPoints;
+using Codebase.ComponentScripts.Vehicle.Model;
+using Codebase.ComponentScripts.Vehicle.SO;
 using Codebase.Systems.CommandSystem;
 using Codebase.Systems.CommandSystem.Signals;
 using UnityEngine;
@@ -10,11 +12,13 @@ namespace Codebase.Installers
     {
         [SerializeField] private PlayerSpawnPoint _spawnPoint;
 
-        private ICommandDispatcher _commandDispatcher;
+        private DiContainer _container;
         
         public override void InstallBindings()
         {
-            Container.AncestorContainers[0].Bind<PlayerSpawnPoint>()
+            _container = Container.AncestorContainers[0];
+            
+            _container.Bind<PlayerSpawnPoint>()
                 .FromInstance(_spawnPoint)
                 .AsSingle();
         }

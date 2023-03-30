@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Codebase.ComponentScripts.Vehicle.Controller
 {
-    public class Vehicle : MonoBehaviour, IVehicle
+    public class Vehicle : MonoBehaviour, IPlayerVehicle
     {
         [SerializeField] private List<VehicleSpring> _springs;
         [SerializeField] private Rigidbody _vehicleBody;

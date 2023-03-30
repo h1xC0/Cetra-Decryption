@@ -1,4 +1,5 @@
 using Codebase.ComponentScripts.Vehicle;
+using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Systems.CommandSystem.Payloads;
 using Zenject;
 
@@ -9,7 +10,8 @@ namespace Codebase.Systems.CommandSystem.Commands
         private readonly IVehicleFactory _vehicleFactory;
         
         public InitializeGameCommand(IInstantiator instantiator, 
-            DiContainer container)
+            DiContainer container,
+            IVehicleModel vehicleModel)
         {
             _vehicleFactory = new VehicleFactory(container, instantiator);
         }
@@ -18,8 +20,8 @@ namespace Codebase.Systems.CommandSystem.Commands
         {
             Retain();
 
-            _vehicleFactory.GeneratePlayerVehicle();
-            
+            var playerVehicle = _vehicleFactory.GeneratePlayerVehicle();
+
             Release();
         }
     }
