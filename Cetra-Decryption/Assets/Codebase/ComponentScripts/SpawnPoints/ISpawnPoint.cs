@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SpawnPoints
+namespace Codebase.ComponentScripts.SpawnPoints
 {
     public interface ISpawnPoint
     { 

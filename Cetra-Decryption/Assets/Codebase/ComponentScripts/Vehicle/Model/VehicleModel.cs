@@ -1,4 +1,4 @@
-namespace Derby.Vehicle.Model
+namespace Codebase.ComponentScripts.Vehicle.Model
 {
     public class VehicleModel : IVehicleModel
     {

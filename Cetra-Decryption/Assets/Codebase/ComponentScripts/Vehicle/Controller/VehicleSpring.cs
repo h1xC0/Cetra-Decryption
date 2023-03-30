@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Derby.Vehicle.Controller
+namespace Codebase.ComponentScripts.Vehicle.Controller
 {
     public class VehicleSpring : MonoBehaviour
     {

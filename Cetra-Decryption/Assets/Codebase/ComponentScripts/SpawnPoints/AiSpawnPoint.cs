@@ -1,4 +1,4 @@
-namespace SpawnPoints
+namespace Codebase.ComponentScripts.SpawnPoints
 {
     public class AiSpawnPoint : SpawnPointBase
     {

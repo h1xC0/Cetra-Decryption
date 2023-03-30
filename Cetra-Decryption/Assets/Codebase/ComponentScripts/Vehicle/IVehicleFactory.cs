@@ -1,6 +1,6 @@
-using Derby.Vehicle.Controller;
+using Codebase.ComponentScripts.Vehicle.Controller;
 
-namespace Derby
+namespace Codebase.ComponentScripts.Vehicle
 {
     public interface IVehicleFactory
     {

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace SpawnPoints
+namespace Codebase.ComponentScripts.SpawnPoints
 {
     public class SpawnPointBase : MonoBehaviour, ISpawnPoint
     {

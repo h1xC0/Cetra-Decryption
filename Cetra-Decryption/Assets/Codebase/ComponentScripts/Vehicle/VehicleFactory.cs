@@ -1,9 +1,9 @@
+using Codebase.ComponentScripts.SpawnPoints;
+using Codebase.ComponentScripts.Vehicle.Controller;
 using Codebase.StaticData;
-using Derby.Vehicle.Controller;
-using SpawnPoints;
 using Zenject;
 
-namespace Derby
+namespace Codebase.ComponentScripts.Vehicle
 {
     public class VehicleFactory : IVehicleFactory
     {

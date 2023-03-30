@@ -1,6 +1,6 @@
+using Codebase.ComponentScripts.SpawnPoints;
 using Codebase.Systems.CommandSystem;
 using Codebase.Systems.CommandSystem.Signals;
-using SpawnPoints;
 using UnityEngine;
 using Zenject;
 

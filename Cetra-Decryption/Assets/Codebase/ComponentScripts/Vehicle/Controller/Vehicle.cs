@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Derby.Vehicle.Controller
+namespace Codebase.ComponentScripts.Vehicle.Controller
 {
     public class Vehicle : MonoBehaviour, IVehicle
     {
