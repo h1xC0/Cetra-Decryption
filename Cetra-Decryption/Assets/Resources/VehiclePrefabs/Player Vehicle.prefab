@@ -299,6 +299,8 @@ MonoBehaviour:
   _vehicleBody: {fileID: 398539469030028215}
   _maxForce: 200000
   _maxDistance: 2.5
+  _wheelRadius: 0.85
+  dampingFactor: 0
 --- !u!1 &1221683191874731454
 GameObject:
   m_ObjectHideFlags: 0

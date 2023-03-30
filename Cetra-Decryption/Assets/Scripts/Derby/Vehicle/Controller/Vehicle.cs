@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Derby.Vehicle.Controller
 {
@@ -9,6 +10,8 @@ namespace Derby.Vehicle.Controller
         [SerializeField] private Rigidbody _vehicleBody;
         [SerializeField] private float _maxForce;
         [SerializeField] private float _maxDistance;
+        [SerializeField] private float _wheelRadius = 0.05f;
+        [SerializeField] private float dampingFactor;
         private Vector3 GetInput()
         {
             var horizontal = Input.GetAxis("Horizontal");
@@ -23,19 +26,26 @@ namespace Derby.Vehicle.Controller
         private void FixedUpdate()
         {
             var input = GetInput();
-            WheelsSteering(input);
         }
 
-        private void WheelsSteering(Vector3 input)
+        private void SpringSuspension()
         {
             foreach (var spring in _springs)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(spring.transform.position, -transform.up, out hit, spring.MaxDistance))
                 {
-                    _vehicleBody.AddForceAtPosition(_maxForce * Time.fixedDeltaTime * transform.up * (_maxDistance - hit.distance) / _maxDistance, spring.transform.position);
+                    float damping = Vector3.Dot(_vehicleBody.GetPointVelocity(spring.transform.position),spring.transform.up);
+                    _vehicleBody.AddForceAtPosition(_maxForce * Time.fixedDeltaTime * transform.up * Mathf.Max(((_maxDistance - hit.distance + _wheelRadius) / _maxDistance - damping), 0), spring.transform.position);
                 }
             }
         }
+
+        public void Dispose()
+        {
+            
+        }
+
+        public GameObject GameObject { get; }
     }
 }

@@ -1,6 +1,6 @@
 namespace Derby.Vehicle.Controller
 {
-    public interface IVehicle
+    public interface IVehicle : IView
     {
      
     }
