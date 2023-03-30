@@ -1,6 +1,6 @@
 using System;
 
-namespace Codebase.ComponentScripts.Vehicle.Controller
+namespace Codebase.Systems.MVC
 {
     public class BaseController<TViewContract> : IDisposable
         where TViewContract : IView
@@ -12,13 +12,9 @@ namespace Codebase.ComponentScripts.Vehicle.Controller
             View = viewContract;
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
-        }
-
-        protected T AddDisposable<T>(T controller) where T : IDisposable
-        {
-            return controller;
+            
         }
     }
 }

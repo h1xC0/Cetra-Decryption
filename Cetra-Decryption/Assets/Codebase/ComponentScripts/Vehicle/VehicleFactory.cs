@@ -1,6 +1,9 @@
 using Codebase.ComponentScripts.SpawnPoints;
 using Codebase.ComponentScripts.Vehicle.Controller;
+using Codebase.ComponentScripts.Vehicle.Model;
+using Codebase.ComponentScripts.Vehicle.View;
 using Codebase.StaticData;
+using Codebase.Systems.MVC;
 using Zenject;
 
 namespace Codebase.ComponentScripts.Vehicle
@@ -9,28 +12,22 @@ namespace Codebase.ComponentScripts.Vehicle
     {
         private readonly IInstantiator _instantiator;
         private readonly ISpawnPoint _playerSpawnPoint;
-        private readonly DiContainer _container;
 
         public VehicleFactory(DiContainer container, IInstantiator instantiator)
         {
-            _container = container;
             _instantiator = instantiator;
             _playerSpawnPoint = container.Resolve<PlayerSpawnPoint>();
         }
 
-        public IVehicle GeneratePlayerVehicle()
+        public IPlayerVehicle GeneratePlayerVehicle(IVehicleModel model)
         {
-            var playerVehicle = _instantiator
-                .InstantiatePrefabResourceForComponent<IVehicle>(ResourcesInfo.PlayerVehicleInfo.Path,
+            var vehicleView = _instantiator
+                .InstantiatePrefabResourceForComponent<VehicleView>(ResourcesInfo.PlayerVehicleInfo.Path,
                     _playerSpawnPoint.GetSpawnParent());
 
-            _container
-                .Bind<IVehicle>()
-                .FromInstance(playerVehicle)
-                .AsSingle()
-                .NonLazy();
+            var controller = new VehicleController<IView>(vehicleView, model);
 
-            return playerVehicle;
+            return controller;
         }
 
         public IVehicle GenerateAiVehicle()

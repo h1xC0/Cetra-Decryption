@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Codebase.ComponentScripts.Vehicle.Controller
+namespace Codebase.Systems.MVC
 {
     public interface IView : IDisposable
     {

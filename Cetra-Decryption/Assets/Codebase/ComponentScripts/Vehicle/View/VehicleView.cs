@@ -1,11 +1,13 @@
 using System.Collections.Generic;
+using Codebase.ComponentScripts.Vehicle.Model;
+using Codebase.Systems.MVC;
 using UnityEngine;
 
-namespace Codebase.ComponentScripts.Vehicle.Controller
+namespace Codebase.ComponentScripts.Vehicle.View
 {
-    public class Vehicle : MonoBehaviour, IPlayerVehicle
+    public class VehicleView : BaseView
     {
-        [SerializeField] private List<VehicleSpring> _springs;
+        [SerializeField] private List<VehicleSpringModel> _springs;
         [SerializeField] private Rigidbody _vehicleBody;
         [SerializeField] private float _maxForce;
         [SerializeField] private float _maxDistance;
@@ -32,19 +34,12 @@ namespace Codebase.ComponentScripts.Vehicle.Controller
             foreach (var spring in _springs)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(spring.transform.position, -transform.up, out hit, spring.MaxDistance))
+                /*if (Physics.Raycast(spring.transform.position, -transform.up, out hit, spring.MaxDistance))
                 {
                     float damping = Vector3.Dot(_vehicleBody.GetPointVelocity(spring.transform.position),spring.transform.up);
                     _vehicleBody.AddForceAtPosition(_maxForce * Time.fixedDeltaTime * transform.up * Mathf.Max(((_maxDistance - hit.distance + _wheelRadius) / _maxDistance - damping), 0), spring.transform.position);
-                }
+                }*/
             }
         }
-
-        public void Dispose()
-        {
-            
-        }
-
-        public GameObject GameObject { get; }
     }
 }

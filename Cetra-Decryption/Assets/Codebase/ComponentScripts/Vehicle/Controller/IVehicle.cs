@@ -1,6 +1,6 @@
 namespace Codebase.ComponentScripts.Vehicle.Controller
 {
-    public interface IVehicle : IView
+    public interface IVehicle
     {
         
     }
