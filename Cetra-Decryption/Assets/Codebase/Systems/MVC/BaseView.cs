@@ -1,14 +1,16 @@
+using UniRx;
 using UnityEngine;
 
 namespace Codebase.Systems.MVC
 {
-    public class BaseView : MonoBehaviour, IView
+    public abstract class BaseView : MonoBehaviour, IView
     {
+        public GameObject GameObject { get; }
+        public CompositeDisposable CompositeDisposable;
+
         public virtual void Dispose()
         {
-            
+            CompositeDisposable.Dispose();
         }
-
-        public GameObject GameObject { get; }
     }
 }

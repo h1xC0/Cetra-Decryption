@@ -4,6 +4,7 @@ using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.ComponentScripts.Vehicle.View;
 using Codebase.StaticData;
 using Codebase.Systems.MVC;
+using UniRx;
 using Zenject;
 
 namespace Codebase.ComponentScripts.Vehicle
@@ -12,6 +13,7 @@ namespace Codebase.ComponentScripts.Vehicle
     {
         private readonly IInstantiator _instantiator;
         private readonly ISpawnPoint _playerSpawnPoint;
+        private readonly CompositeDisposable _compositeDisposable = new();
 
         public VehicleFactory(DiContainer container, IInstantiator instantiator)
         {
@@ -22,17 +24,18 @@ namespace Codebase.ComponentScripts.Vehicle
         public IPlayerVehicle GeneratePlayerVehicle(IVehicleModel model)
         {
             var vehicleView = _instantiator
-                .InstantiatePrefabResourceForComponent<VehicleView>(ResourcesInfo.PlayerVehicleInfo.Path,
+                .InstantiatePrefabResourceForComponent<SimpleCarView>(ResourcesInfo.PlayerVehicleInfo.Path,
                     _playerSpawnPoint.GetSpawnParent());
 
-            var controller = new VehicleController<IView>(vehicleView, model);
-
+            
+            var controller = new SimpleCarController(vehicleView, model).AddTo(_compositeDisposable);
+            
             return controller;
         }
 
         public IVehicle GenerateAiVehicle()
         {
-            return null;
+            return null; // Connect Chat-GPT to control vehicle brain
         }
     }
 }

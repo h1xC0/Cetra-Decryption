@@ -1,13 +1,16 @@
 using System;
+using Codebase.ComponentScripts.Vehicle.Controller;
+using UniRx;
 
 namespace Codebase.Systems.MVC
 {
-    public class BaseController<TViewContract> : IDisposable
+    public abstract class BaseController<TViewContract> : IDisposable, IVehicle
         where TViewContract : IView
     {
+        protected CompositeDisposable CompositeDisposable = new CompositeDisposable();
         protected TViewContract View;
 
-        public BaseController(TViewContract viewContract)
+        protected BaseController(TViewContract viewContract)
         {
             View = viewContract;
         }
@@ -15,6 +18,11 @@ namespace Codebase.Systems.MVC
         public virtual void Dispose()
         {
             
+        }
+        protected T AddDisposable<T>(T controller) where T : IDisposable
+        {
+            CompositeDisposable.Add(controller);
+            return controller;
         }
     }
 }
