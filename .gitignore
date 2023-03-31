@@ -60,5 +60,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Unity layout
-# *.dwlt
+*.dwlt
 
