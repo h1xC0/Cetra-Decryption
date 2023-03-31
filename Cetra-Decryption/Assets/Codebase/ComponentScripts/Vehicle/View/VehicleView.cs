@@ -11,15 +11,20 @@ namespace Codebase.ComponentScripts.Vehicle.View
         public string Id => Guid.NewGuid().ToString();
 
         [SerializeField] private List<Transform> _springs;
+        [SerializeField] private List<Transform> _wheels;
+        [SerializeField] private Dictionary<Transform, Transform> _points;
         [SerializeField] private Rigidbody _vehicleBody;
         [SerializeField] private float _maxForce;
         [SerializeField] private float _maxDistance;
-        [SerializeField] private float _wheelRadius = 0.05f;
+        [SerializeField] private float _wheelRadius = 0.85f;
         [SerializeField] private float dampingFactor;
 
         public void Initialize()
         {
-            
+            for (int i = 0; i < _springs.Count; i++)
+            {
+                _points.Add(_springs[i], _wheels[i]);
+            }
         }
         private Vector3 GetInput()
         {
@@ -35,24 +40,40 @@ namespace Codebase.ComponentScripts.Vehicle.View
         private void FixedUpdate()
         {
             var input = GetInput();
+            SpringSuspension(_maxDistance);
         }
 
         private void SpringSuspension(float maxDistance)
         {
             foreach (var spring in _springs)
             {
+                Transform wheel;
+                bool found = _points.TryGetValue(spring, out wheel);
+                
                 RaycastHit hit;
                 if (Physics.Raycast(spring.transform.position, -transform.up, out hit, maxDistance))
                 {
                     float damping = Vector3.Dot(_vehicleBody.GetPointVelocity(spring.transform.position),spring.transform.up);
-                    _vehicleBody.AddForceAtPosition(_maxForce * Time.fixedDeltaTime * transform.up * Mathf.Max(((_maxDistance - hit.distance + _wheelRadius) / _maxDistance - damping), 0), spring.transform.position);
+                    
+                    _vehicleBody.AddForceAtPosition(
+                        _maxForce * Time.fixedDeltaTime * transform.up *
+                        Mathf.Max(((_maxDistance - hit.distance + _wheelRadius) / _maxDistance - damping), 0),
+                        spring.transform.position);
+                    if (found)
+                    {
+                        wheel.localPosition = new Vector3(wheel.localPosition.x, (_wheelRadius / hit.distance) / wheel.lossyScale.y, wheel.localPosition.z);
+                    }
+                }
+                else if (found)
+                {
+                    
                 }
             }
         }
 
         public void DestroyView()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

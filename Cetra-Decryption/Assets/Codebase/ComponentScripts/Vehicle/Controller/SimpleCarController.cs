@@ -6,11 +6,12 @@ namespace Codebase.ComponentScripts.Vehicle.Controller
     {
         public SimpleCarController(ISimpleCarView view, IVehicleModel model) : base(view, model)
         {
+            
         }
 
         protected override void Initialize()
         {
-            
+            View.Initialize();
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Codebase.Enums
     {
         FrontLeft = 0,
         FrontRight = 1,
-        BackLeft = 2,
-        BackRight = 3
+        RearLeft = 2,
+        RearRight = 3
     }
 }
