@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Codebase.ComponentScripts.Vehicle.SO
 {
-    [CreateAssetMenu(menuName = "Models/VehicleModel", fileName = "VehicleModel")]
     public class VehicleModelData : ScriptableObject
     {
         [System.Serializable]
@@ -21,14 +20,25 @@ namespace Codebase.ComponentScripts.Vehicle.SO
             }
         }
         
-        public string VehicleName = "";
         public List<VehicleSpring> Springs;
-
-        public IVehicleModel ToModel()
+        
+        public string VehicleName = "";
+        public int HitPoints;
+        public int AccessoriesCount;
+        public float Speed;
+        public float Mass;
+        
+        public virtual VehicleModel ToModel()
         {
             var model = new VehicleModel
             {
-                VehicleName = VehicleName
+                VehicleName = VehicleName,
+                HitPoints = HitPoints,
+                AccessoriesCount = AccessoriesCount,
+                Speed = Speed,
+                Mass = Mass,
+                Defence = 0,
+                Nitro = 0
             };
 
             foreach (var spring in Springs)
