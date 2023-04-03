@@ -13,7 +13,7 @@ namespace Codebase.ComponentScripts.Vehicle.SO
         {
             var model = base.ToModel();
             model.Nitro = Nitro;
-            model.Defence = Defence;
+            model.Armor = Defence;
             return model;
         }
     }

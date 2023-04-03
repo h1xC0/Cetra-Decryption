@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Codebase.ComponentScripts.Vehicle.SO
 {
-    [CreateAssetMenu(menuName = "VehicleModels/DefenceVehicle", fileName = "Defence Vehicle Model")]
-    public class DefenceVehicleModel : VehicleModelData
+    [CreateAssetMenu(menuName = "VehicleModels/ArmorVehicle", fileName = "Armor Vehicle Model")]
+    public class ArmorVehicleModel : VehicleModelData
     {
-        public int Defence;
+        public int Armor;
         
         public override VehicleModel ToModel()
         {
             var model = base.ToModel();
-            model.Defence = Defence;
+            model.Armor = Armor;
             return model;
         }
     }

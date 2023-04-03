@@ -37,7 +37,7 @@ namespace Codebase.ComponentScripts.Vehicle.SO
                 AccessoriesCount = AccessoriesCount,
                 Speed = Speed,
                 Mass = Mass,
-                Defence = 0,
+                Armor = 0,
                 Nitro = 0
             };
 

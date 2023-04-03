@@ -6,7 +6,7 @@ namespace Codebase.ComponentScripts.Vehicle.Model
     {
         public string VehicleName;
         public int HitPoints;
-        public int Defence;
+        public int Armor;
         public int AccessoriesCount;
         public float Speed;
         public float Mass;
