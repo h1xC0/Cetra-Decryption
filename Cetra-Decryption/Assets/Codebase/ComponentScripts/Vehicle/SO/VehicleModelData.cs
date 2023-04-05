@@ -9,20 +9,23 @@ namespace Codebase.ComponentScripts.Vehicle.SO
     public class VehicleModelData : ScriptableObject
     {
         [System.Serializable]
-        public class VehicleSpring
+        public class VehicleWheel
         {
-            public float MaxDistance;
-            public float MaxForce;
-            public SpringLocation Location;
+            public float WheelRadius;
+            public float RestLength;
+            public float SpringTravel;
+            public float SpringStiffness;
+            public float DamperStiffness;
+            public WheelLocation Location;
 
-            public VehicleSpringModel ToSpringModel()
+            public VehicleWheelModel ToSpringModel()
             {
-                return new VehicleSpringModel(MaxDistance, MaxForce, Location);
+                return new VehicleWheelModel(WheelRadius, RestLength, SpringTravel, SpringStiffness, DamperStiffness, Location);
             }
         }
         
         public string VehicleName = "";
-        public List<VehicleSpring> Springs;
+        public List<VehicleWheel> Wheels;
 
         public IVehicleModel ToModel()
         {
@@ -31,9 +34,9 @@ namespace Codebase.ComponentScripts.Vehicle.SO
                 VehicleName = VehicleName
             };
 
-            foreach (var spring in Springs)
+            foreach (var wheel in Wheels)
             {
-                model.Springs.Add(spring.ToSpringModel());
+                model.WheelModels.Add(wheel.ToSpringModel());
             }
 
             return model;

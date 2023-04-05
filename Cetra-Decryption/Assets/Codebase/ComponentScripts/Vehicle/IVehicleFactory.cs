@@ -5,7 +5,7 @@ namespace Codebase.ComponentScripts.Vehicle
 {
     public interface IVehicleFactory
     {
-        IPlayerVehicle GeneratePlayerVehicle(IVehicleModel model);
+        IVehicle GeneratePlayerVehicle(IVehicleModel model);
         IVehicle GenerateAiVehicle();
     }
 }

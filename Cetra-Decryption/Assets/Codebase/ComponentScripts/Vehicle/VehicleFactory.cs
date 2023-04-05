@@ -21,15 +21,14 @@ namespace Codebase.ComponentScripts.Vehicle
             _playerSpawnPoint = container.Resolve<PlayerSpawnPoint>();
         }
 
-        public IPlayerVehicle GeneratePlayerVehicle(IVehicleModel model)
+        public IVehicle GeneratePlayerVehicle(IVehicleModel model)
         {
             var vehicleView = _instantiator
                 .InstantiatePrefabResourceForComponent<SimpleCarView>(ResourcesInfo.PlayerVehicleInfo.Path,
                     _playerSpawnPoint.GetSpawnParent());
 
-            
-            var controller = new SimpleCarController(vehicleView, model).AddTo(_compositeDisposable);
-            
+            // TODO: change place of disposing vehicle controllers
+            var controller = new SimpleCarController(vehicleView).AddTo(_compositeDisposable);
             return controller;
         }
 

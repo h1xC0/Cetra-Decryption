@@ -1,10 +1,10 @@
 namespace Codebase.Enums
 {
-    public enum SpringLocation : byte
+    public enum WheelLocation : byte
     {
         FrontLeft = 0,
-        FrontRight = 1,
-        RearLeft = 2,
+        RearLeft = 1,
+        FrontRight = 2,
         RearRight = 3
     }
 }

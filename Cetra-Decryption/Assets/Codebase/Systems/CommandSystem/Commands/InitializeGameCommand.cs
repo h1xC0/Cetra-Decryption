@@ -29,7 +29,7 @@ namespace Codebase.Systems.CommandSystem.Commands
             var playerVehicle = _vehicleFactory.GeneratePlayerVehicle(_model);
 
             _container
-                .Bind<IPlayerVehicle>()
+                .Bind<IVehicle>()
                 .FromInstance(playerVehicle)
                 .AsSingle()
                 .NonLazy();
