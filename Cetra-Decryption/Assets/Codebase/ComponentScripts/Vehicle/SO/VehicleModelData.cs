@@ -25,13 +25,14 @@ namespace Codebase.ComponentScripts.Vehicle.SO
         }
         
         public string VehicleName = "";
-        public List<VehicleWheel> Wheels;
+        public List<VehicleWheel> Wheels = new ();
 
         public IVehicleModel ToModel()
         {
             var model = new VehicleModel
             {
-                VehicleName = VehicleName
+                VehicleName = VehicleName,
+                WheelModels = new ()
             };
 
             foreach (var wheel in Wheels)
