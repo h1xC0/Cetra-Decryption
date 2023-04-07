@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -407,8 +407,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337004699}
-  - component: {fileID: 1337004700}
-  - component: {fileID: 1337004701}
+  - component: {fileID: 1337004702}
+  - component: {fileID: 1337004703}
   m_Layer: 0
   m_Name: Context
   m_TagString: Untagged
@@ -431,7 +431,7 @@ Transform:
   m_Father: {fileID: 511677047}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1337004700
+--- !u!114 &1337004702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 1337004701}
+  - {fileID: 1337004703}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -463,7 +463,7 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
---- !u!114 &1337004701
+--- !u!114 &1337004703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,9 +472,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1337004698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec94eb31fcd84984830610e19717c9bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 31f7f6769d344f5da06ac246078f9a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vehicleModelData: {fileID: 11400000, guid: 10a619725b1e71a44a7331e877dd6952, type: 2}
   _spawnPoint: {fileID: 1563124019}
 --- !u!1 &1563124017
 GameObject:

@@ -4,7 +4,7 @@ using Codebase.Systems.CommandSystem.Signals;
 
 namespace Codebase.Installers
 {
-    public class BootstrapInstaller : BaseProjectInstaller
+    public class BootstrapInstaller : BaseInstaller
     { 
         public BootstrapInstaller(ICommandBinder commandBinder) : base(commandBinder)
         {
@@ -26,8 +26,7 @@ namespace Codebase.Installers
                 .To<LoadSceneCommand>();
 
             commandBinder.Bind<LoadGameSceneSignal>()
-                .To<LoadSceneCommand>()
-                .To<InitializeGameCommand>();
+                .To<LoadSceneCommand>();
         }
     }
 }

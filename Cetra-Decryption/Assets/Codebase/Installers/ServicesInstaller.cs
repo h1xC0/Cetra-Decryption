@@ -8,9 +8,9 @@ namespace Codebase.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<CommandBinder>().AsSingle();
-            Container.BindInterfacesTo<EventBrokerService>().AsSingle();
-            Container.BindInterfacesTo<CommandDispatcher>().AsSingle();
+            Container.BindInterfacesTo<CommandBinder>().AsSingle().CopyIntoAllSubContainers();
+            Container.BindInterfacesTo<EventBrokerService>().FromNew().AsCached();
+            Container.BindInterfacesTo<CommandDispatcher>().FromNew().AsCached();
         }
     }
 }
