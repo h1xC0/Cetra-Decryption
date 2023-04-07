@@ -1,3 +1,4 @@
+using Codebase.ComponentScripts.Cars.Controller;
 using Codebase.ComponentScripts.SpawnPoints;
 using Codebase.ComponentScripts.Vehicle.Controller;
 using Codebase.ComponentScripts.Vehicle.Model;

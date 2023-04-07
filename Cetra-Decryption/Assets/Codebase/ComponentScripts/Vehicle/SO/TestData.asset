@@ -13,26 +13,30 @@ MonoBehaviour:
   m_Name: TestData
   m_EditorClassIdentifier: 
   VehicleName: Legkovushka
-  Wheels:
-  - WheelRadius: 0.85
+  Springs:
+  - WheelRadius: 1.25
+    WheelOffset: -0.6
     RestLength: 0.5
     SpringTravel: 0.2
     SpringStiffness: 30000
     DamperStiffness: 4000
     Location: 0
-  - WheelRadius: 0.85
+  - WheelRadius: 1.25
+    WheelOffset: -0.6
     RestLength: 0.5
     SpringTravel: 0.2
     SpringStiffness: 30000
     DamperStiffness: 4000
     Location: 1
-  - WheelRadius: 0.85
+  - WheelRadius: 1.25
+    WheelOffset: -0.6
     RestLength: 0.5
     SpringTravel: 0.2
     SpringStiffness: 30000
     DamperStiffness: 4000
     Location: 2
-  - WheelRadius: 0.85
+  - WheelRadius: 1.25
+    WheelOffset: -0.6
     RestLength: 0.5
     SpringTravel: 0.2
     SpringStiffness: 30000

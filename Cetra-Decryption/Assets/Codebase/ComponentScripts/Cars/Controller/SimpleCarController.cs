@@ -1,4 +1,6 @@
-namespace Codebase.ComponentScripts.Vehicle.Controller
+using Codebase.ComponentScripts.Vehicle.Controller;
+
+namespace Codebase.ComponentScripts.Cars.Controller
 {
     public class SimpleCarController : VehicleController<ISimpleCarView>
     {

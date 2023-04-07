@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 398539469030028215}
   - component: {fileID: 398539469030028212}
   - component: {fileID: 1465368401145495885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player Vehicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,9 +258,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398539469030028211}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 1410
   m_Drag: 1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -293,15 +293,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vehicleModelData: {fileID: 11400000, guid: 10a619725b1e71a44a7331e877dd6952, type: 2}
   _springs:
-  - {fileID: 1345495170093129337}
-  - {fileID: 6315053740920253949}
-  - {fileID: 202332311455354753}
-  - {fileID: 7162733515011327130}
+  - {fileID: 804689291098583851}
+  - {fileID: 5314885712230411690}
+  - {fileID: 1051753904133757641}
+  - {fileID: 3188365057995888304}
   _wheels:
-  - {fileID: 876115758292622378}
-  - {fileID: 3457294570362122079}
-  - {fileID: 1861731865232617883}
-  - {fileID: 544085918175921211}
+  - {fileID: 8698816862398387966}
+  - {fileID: 4567687222087416287}
+  - {fileID: 4669254172034698557}
+  - {fileID: 1279022494866288372}
+  _body: {fileID: 398539469030028215}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1221683191874731454
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +494,6 @@ GameObject:
   - component: {fileID: 8698816862398387966}
   - component: {fileID: 5527317309588769573}
   - component: {fileID: 9172814786886812397}
-  - component: {fileID: 876115758292622378}
   m_Layer: 0
   m_Name: Wheel FL
   m_TagString: Untagged
@@ -567,18 +570,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &876115758292622378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3762411374548748493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4800964168070028320
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7162733515011327130}
+  - component: {fileID: 3188365057995888304}
   m_Layer: 0
   m_Name: SpringRR
   m_TagString: Untagged
@@ -611,6 +603,18 @@ Transform:
   m_Father: {fileID: 652575541055325999}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3188365057995888304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800964168070028320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5327922723430351827
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6315053740920253949}
+  - component: {fileID: 5314885712230411690}
   m_Layer: 0
   m_Name: SpringRL
   m_TagString: Untagged
@@ -726,6 +731,18 @@ Transform:
   m_Father: {fileID: 652575541055325999}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5314885712230411690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211976920872621765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7300537836144905203
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +754,6 @@ GameObject:
   - component: {fileID: 4567687222087416287}
   - component: {fileID: 4519992455110748709}
   - component: {fileID: 5518677410073475549}
-  - component: {fileID: 3457294570362122079}
   m_Layer: 0
   m_Name: Wheel RL
   m_TagString: Untagged
@@ -814,18 +830,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3457294570362122079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7300537836144905203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7782770874830750733
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 202332311455354753}
+  - component: {fileID: 1051753904133757641}
   m_Layer: 0
   m_Name: SpringFR
   m_TagString: Untagged
@@ -858,6 +863,18 @@ Transform:
   m_Father: {fileID: 652575541055325999}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051753904133757641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782770874830750733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7898591430301287976
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +886,6 @@ GameObject:
   - component: {fileID: 4669254172034698557}
   - component: {fileID: 5383140676401117832}
   - component: {fileID: 4593690600623148988}
-  - component: {fileID: 1861731865232617883}
   m_Layer: 0
   m_Name: Wheel FR
   m_TagString: Untagged
@@ -946,18 +962,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1861731865232617883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7898591430301287976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8481366524444328198
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1345495170093129337}
+  - component: {fileID: 804689291098583851}
   m_Layer: 0
   m_Name: SpringFL
   m_TagString: Untagged
@@ -990,6 +995,18 @@ Transform:
   m_Father: {fileID: 652575541055325999}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &804689291098583851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8481366524444328198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8504867886647022015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1271,6 @@ GameObject:
   - component: {fileID: 1279022494866288372}
   - component: {fileID: 440755485696836640}
   - component: {fileID: 7687839400812928466}
-  - component: {fileID: 544085918175921211}
   m_Layer: 0
   m_Name: Wheel RR
   m_TagString: Untagged
@@ -1331,15 +1347,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &544085918175921211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175173303846412108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5b60047f3c4b26905ab590f5a0d2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

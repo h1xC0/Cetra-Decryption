@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Codebase.ComponentScripts.Vehicle.SO
 {
@@ -9,23 +10,24 @@ namespace Codebase.ComponentScripts.Vehicle.SO
     public class VehicleModelData : ScriptableObject
     {
         [System.Serializable]
-        public class VehicleWheel
+        public class VehicleSpring
         {
             public float WheelRadius;
+            public float WheelOffset;
             public float RestLength;
             public float SpringTravel;
             public float SpringStiffness;
             public float DamperStiffness;
             public WheelLocation Location;
 
-            public VehicleWheelModel ToSpringModel()
+            public VehicleSpringModel ToSpringModel()
             {
-                return new VehicleWheelModel(WheelRadius, RestLength, SpringTravel, SpringStiffness, DamperStiffness, Location);
+                return new VehicleSpringModel(WheelRadius, WheelOffset, RestLength, SpringTravel, SpringStiffness, DamperStiffness, Location);
             }
         }
         
         public string VehicleName = "";
-        public List<VehicleWheel> Wheels = new ();
+        public List<VehicleSpring> Springs = new ();
 
         public IVehicleModel ToModel()
         {
@@ -35,7 +37,7 @@ namespace Codebase.ComponentScripts.Vehicle.SO
                 WheelModels = new ()
             };
 
-            foreach (var wheel in Wheels)
+            foreach (var wheel in Springs)
             {
                 model.WheelModels.Add(wheel.ToSpringModel());
             }

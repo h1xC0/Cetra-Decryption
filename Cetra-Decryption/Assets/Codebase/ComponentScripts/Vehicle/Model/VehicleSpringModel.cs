@@ -2,8 +2,9 @@ using Codebase.Enums;
 
 namespace Codebase.ComponentScripts.Vehicle.Model
 {
-    public class VehicleWheelModel
+    public class VehicleSpringModel
     {
+        public float WheelOffset;
         public float WheelRadius;
         public float RestLength;
         public float SpringTravel;
@@ -11,9 +12,10 @@ namespace Codebase.ComponentScripts.Vehicle.Model
         public float DamperStiffness;
         public WheelLocation Location;
 
-        public VehicleWheelModel(float wheelRadius, float restLength, float springTravel, float springStiffness, float damperStiffness, WheelLocation location)
+        public VehicleSpringModel(float wheelRadius, float wheelOffset, float restLength, float springTravel, float springStiffness, float damperStiffness, WheelLocation location)
         {
             WheelRadius = wheelRadius;
+            WheelOffset = wheelOffset;
             RestLength = restLength;
             SpringTravel = springTravel;
             SpringStiffness = springStiffness;

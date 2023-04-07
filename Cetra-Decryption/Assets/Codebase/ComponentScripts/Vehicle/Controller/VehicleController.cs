@@ -7,8 +7,10 @@ namespace Codebase.ComponentScripts.Vehicle.Controller
     {
         protected VehicleController(TView view) : base(view)
         {
-            
+
         }
+
+        
 
         // protected abstract void Initialize();
 
