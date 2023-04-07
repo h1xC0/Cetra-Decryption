@@ -1,5 +1,6 @@
 ﻿using Codebase.Systems.CommandSystem;
 using Codebase.Systems.EventBroker;
+using Codebase.Systems.UnityLifecycle;
 using Zenject;
 
 namespace Codebase.Installers
@@ -11,6 +12,7 @@ namespace Codebase.Installers
             Container.BindInterfacesTo<CommandBinder>().AsSingle().CopyIntoAllSubContainers();
             Container.BindInterfacesTo<EventBrokerService>().FromNew().AsCached();
             Container.BindInterfacesTo<CommandDispatcher>().FromNew().AsCached();
+            Container.BindInterfacesTo<UnityLifecycleService>().FromNew().AsSingle();
         }
     }
 }
