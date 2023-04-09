@@ -11,7 +11,7 @@ namespace Codebase.ComponentScripts.Vehicle.SO
         public override VehicleModel ToModel()
         {
             var model = base.ToModel();
-            model.Armor = Armor;
+            model.HealthModel.Armor = Armor;
             return model;
         }
     }

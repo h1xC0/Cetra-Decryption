@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Codebase.ComponentScripts.Vehicle.Controller;
-using Codebase.ComponentScripts.Vehicle.SO;
+using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Systems.MVC;
 using UnityEngine;
 
@@ -12,19 +12,17 @@ namespace Codebase.ComponentScripts.Vehicle.View
     {
         public string Id => Guid.NewGuid().ToString();
 
-        [SerializeField] private VehicleModelData _vehicleModelData;
-        
         [SerializeField] private List<SpringView> _springs;
         [SerializeField] private List<Transform> _wheels;
 
         [SerializeField] private Rigidbody _body;
 
-        public void Initialize()
+        public void Initialize(VehicleModel model)
         {
+            //TODO : Instntiate spring view
             for (int i = 0; i < _springs.Count; i++)
             {
-                var springData = _vehicleModelData.Springs[i];
-                _springs[i].Setup(springData.WheelRadius, springData.WheelOffset, springData.RestLength, springData.SpringTravel, springData.SpringStiffness, springData.DamperStiffness);
+                _springs[i].Initialize(model.SpringModels[i]);
             }
         }
 

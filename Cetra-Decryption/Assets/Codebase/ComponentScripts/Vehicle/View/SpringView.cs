@@ -1,10 +1,10 @@
-using Codebase.ComponentScripts.Vehicle.Controller;
+using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Systems.MVC;
 using UnityEngine;
 
 namespace Codebase.ComponentScripts.Vehicle.View
 {
-    public class SpringView : VehicleViewComponent
+    public class SpringView : BaseView
     {
         // Suspension (serializable)
         private float _restLength;
@@ -28,15 +28,15 @@ namespace Codebase.ComponentScripts.Vehicle.View
         private Rigidbody _rigidbody;
         private Transform _wheel;
 
-        public void Setup(float wheelRadius, float wheelOffset, float restLength, float springTravel, float springStiffness, float damperStiffness)
+        public void Initialize(VehicleSpringModel springModel)
         {
-            _wheelRadius = wheelRadius;
-            _wheelOffset = wheelOffset;
+            _wheelRadius = springModel.WheelRadius;
+            _wheelOffset = springModel.WheelOffset;
             
-            _restLength = restLength;
-            _springTravel = springTravel;
-            _springStiffness = springStiffness;
-            _damperStiffness = damperStiffness;
+            _restLength = springModel.RestLength;
+            _springTravel = springModel.SpringTravel;
+            _springStiffness = springModel.SpringStiffness;
+            _damperStiffness = springModel.DamperStiffness;
             
             _minLength = _restLength - _springTravel;
             _maxLength = _restLength + _springTravel;

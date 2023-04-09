@@ -12,10 +12,17 @@ namespace Codebase.ComponentScripts.Vehicle.Model
         public float DamperStiffness;
         public WheelLocation Location;
 
-        public VehicleSpringModel(float wheelRadius, float wheelOffset, float restLength, float springTravel, float springStiffness, float damperStiffness, WheelLocation location)
+        public VehicleSpringModel(
+            float wheelRadius, 
+            float wheelOffset, 
+            float restLength, 
+            float springTravel, 
+            float springStiffness, 
+            float damperStiffness, 
+            WheelLocation location)
         {
-            WheelRadius = wheelRadius;
             WheelOffset = wheelOffset;
+            WheelRadius = wheelRadius;
             RestLength = restLength;
             SpringTravel = springTravel;
             SpringStiffness = springStiffness;
