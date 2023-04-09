@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace Codebase.ComponentScripts.Vehicle.View
 {
-    
     [RequireComponent(typeof(Rigidbody))]
     public class VehicleView : BaseView, IVehicleView
     {
@@ -20,7 +19,7 @@ namespace Codebase.ComponentScripts.Vehicle.View
 
         [SerializeField] private Rigidbody _body;
 
-        protected override void Setup()
+        public void Initialize()
         {
             for (int i = 0; i < _springs.Count; i++)
             {
@@ -45,7 +44,7 @@ namespace Codebase.ComponentScripts.Vehicle.View
             return Vector3.zero;
         }
         
-        public override void FixedTick()
+        public void FixedUpdate()
         {
             RefreshVehicleComponents();
         }

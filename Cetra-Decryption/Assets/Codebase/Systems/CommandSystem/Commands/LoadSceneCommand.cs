@@ -25,7 +25,7 @@ namespace Codebase.Systems.CommandSystem.Commands
                 return;
             }
 
-            var loadSceneOperation = _sceneLoader.LoadSceneAsync(scene.Info.Name, LoadSceneMode.Additive, null, LoadSceneRelationship.Child);
+            var loadSceneOperation = _sceneLoader.LoadSceneAsync(scene.Info.Name, LoadSceneMode.Additive, null, LoadSceneRelationship.Child, null);
             loadSceneOperation.completed += ReleaseCommand;
         }
 

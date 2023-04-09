@@ -64,7 +64,7 @@ namespace Codebase.ComponentScripts.Vehicle.View
                 wheelLocalPosition = new Vector3(wheelLocalPosition.x,
                     _wheelOffset / (_wheelRadius / hit.distance), wheelLocalPosition.z);
 
-                Debug.Log($"Hit collider: <color=red>{hit.collider.name}</color>");
+                //Debug.Log($"Hit collider: <color=red>{hit.collider.name}</color>");
             }
             else
             {

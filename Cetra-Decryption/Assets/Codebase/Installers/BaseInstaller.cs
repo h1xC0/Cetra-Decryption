@@ -3,11 +3,11 @@ using Zenject;
 
 namespace Codebase.Installers
 {
-    public abstract class BaseProjectInstaller : Installer
+    public abstract class BaseInstaller : Installer
     {
         private readonly ICommandBinder _commandBinder;
 
-        protected BaseProjectInstaller(ICommandBinder commandBinder)
+        protected BaseInstaller(ICommandBinder commandBinder)
         {
             _commandBinder = commandBinder;
         }

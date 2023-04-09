@@ -1,9 +1,8 @@
-using Codebase.ComponentScripts.Vehicle.Model;
-using Codebase.ComponentScripts.Vehicle.SO;
 using Codebase.StaticData;
 using Codebase.Systems.CommandSystem;
 using Codebase.Systems.CommandSystem.Payloads;
 using Codebase.Systems.CommandSystem.Signals;
+using Codebase.Systems.UnityLifecycle;
 using UnityEngine;
 using Zenject;
 
@@ -11,25 +10,23 @@ namespace Codebase.Installers
 {
     public class BootstrapMonoInstaller : MonoInstaller
     {
-        [SerializeField] private VehicleModelData _vehicleModelData;
-        
-        private ICommandDispatcher _commandDispatcher;
-
+        [SerializeField] private UnityLifecycleHandler lifecycleHandler;
         public override void InstallBindings()
         { 
-            Container.Install<ServicesInstaller>(); 
-            Container.Install<BootstrapInstaller>();
-            
-            Container.Bind<IVehicleModel>()
-                .FromInstance(_vehicleModelData.ToModel())
+            Container
+                .Bind<IUnityLifecycleHandler>()
+                .To<UnityLifecycleHandler>()
+                .FromComponentInNewPrefab(lifecycleHandler)
                 .AsSingle();
             
-            _commandDispatcher = Container.Resolve<ICommandDispatcher>();
+            Container.Install<ServicesInstaller>(); 
+            Container.Install<BootstrapInstaller>();
         }
 
-        private void Awake()
+        public void Awake()
         {
-            _commandDispatcher.Dispatch<LoadGameSceneSignal>(new SceneNamePayload(SceneNames.Game));
+            var commandDispatcher = Container.Resolve<ICommandDispatcher>();
+            commandDispatcher.Dispatch<LoadGameSceneSignal>( new SceneNamePayload(SceneNames.Game));
         }
     }
 }

@@ -1,24 +1,25 @@
+using Codebase.ComponentScripts.SpawnPoints;
 using Codebase.ComponentScripts.Vehicle;
-using Codebase.ComponentScripts.Vehicle.Controller;
 using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Systems.CommandSystem.Payloads;
 using Zenject;
 
 namespace Codebase.Systems.CommandSystem.Commands
 {
-    public class InitializeGameCommand : Command
+    public class SpawnPlayerVehicleCommand : Command
     {
         private readonly IVehicleFactory _vehicleFactory;
-        private readonly DiContainer _container;
         private readonly IVehicleModel _model;
+        private readonly DiContainer _container;
         
-        public InitializeGameCommand(
-            IInstantiator instantiator, 
-            DiContainer container,
-            IVehicleModel vehicleModel)
+        public SpawnPlayerVehicleCommand(
+            IInstantiator instantiator,
+            PlayerSpawnPoint playerSpawnPoint,
+            IVehicleModel vehicleModel,
+            DiContainer container)
         {
-            _vehicleFactory = new VehicleFactory(container, instantiator);
             _container = container;
+            _vehicleFactory = new VehicleFactory(instantiator, playerSpawnPoint);
             _model = vehicleModel;
         }
         
@@ -27,12 +28,6 @@ namespace Codebase.Systems.CommandSystem.Commands
             Retain();
 
             var playerVehicle = _vehicleFactory.GeneratePlayerVehicle(_model);
-
-            _container
-                .Bind<IVehicle>()
-                .FromInstance(playerVehicle)
-                .AsSingle()
-                .NonLazy();
 
             Release();
         }

@@ -16,10 +16,10 @@ namespace Codebase.ComponentScripts.Vehicle
         private readonly ISpawnPoint _playerSpawnPoint;
         private readonly CompositeDisposable _compositeDisposable = new();
 
-        public VehicleFactory(DiContainer container, IInstantiator instantiator)
+        public VehicleFactory(IInstantiator instantiator, PlayerSpawnPoint playerSpawnPoint)
         {
             _instantiator = instantiator;
-            _playerSpawnPoint = container.Resolve<PlayerSpawnPoint>();
+            _playerSpawnPoint = playerSpawnPoint;
         }
 
         public IVehicle GeneratePlayerVehicle(IVehicleModel model)

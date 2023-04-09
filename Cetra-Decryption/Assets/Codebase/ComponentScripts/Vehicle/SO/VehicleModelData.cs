@@ -2,11 +2,9 @@ using System.Collections.Generic;
 using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Enums;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Codebase.ComponentScripts.Vehicle.SO
 {
-    [CreateAssetMenu(menuName = "Models/VehicleModel", fileName = "VehicleModel")]
     public class VehicleModelData : ScriptableObject
     {
         [System.Serializable]
@@ -26,20 +24,32 @@ namespace Codebase.ComponentScripts.Vehicle.SO
             }
         }
         
+        public List<VehicleSpring> Springs = new();
+        
         public string VehicleName = "";
-        public List<VehicleSpring> Springs = new ();
-
-        public IVehicleModel ToModel()
+        public int HitPoints;
+        public int AccessoriesCount;
+        public float Speed;
+        public float Mass;
+        
+        public virtual VehicleModel ToModel()
         {
             var model = new VehicleModel
             {
                 VehicleName = VehicleName,
-                WheelModels = new ()
+                HitPoints = HitPoints,
+                AccessoriesCount = AccessoriesCount,
+                Speed = Speed,
+                Mass = Mass,
+                Armor = 0,
+                Nitro = 0
             };
 
-            foreach (var wheel in Springs)
+            model.Springs = new();
+            
+            foreach (var spring in Springs)
             {
-                model.WheelModels.Add(wheel.ToSpringModel());
+                model.Springs.Add(spring.ToSpringModel());
             }
 
             return model;
