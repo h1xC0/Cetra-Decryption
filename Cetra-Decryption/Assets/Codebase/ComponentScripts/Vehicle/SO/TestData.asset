@@ -14,31 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VehicleName: Legkovushka
   Springs:
-  - WheelRadius: 1.25
-    WheelOffset: -0.6
-    RestLength: 0.5
-    SpringTravel: 0.2
-    SpringStiffness: 30000
-    DamperStiffness: 4000
-    Location: 0
-  - WheelRadius: 1.25
-    WheelOffset: -0.6
-    RestLength: 0.5
-    SpringTravel: 0.2
-    SpringStiffness: 30000
-    DamperStiffness: 4000
-    Location: 1
-  - WheelRadius: 1.25
-    WheelOffset: -0.6
-    RestLength: 0.5
-    SpringTravel: 0.2
-    SpringStiffness: 30000
-    DamperStiffness: 4000
-    Location: 2
-  - WheelRadius: 1.25
-    WheelOffset: -0.6
-    RestLength: 0.5
-    SpringTravel: 0.2
-    SpringStiffness: 30000
-    DamperStiffness: 4000
-    Location: 3
+  - {fileID: 11400000, guid: 730bb346a7122924dba6ac71bef1a1a1, type: 2}
+  - {fileID: 11400000, guid: f2f0ee237531a7a4888f38f6faa7fee2, type: 2}
+  - {fileID: 11400000, guid: 4b7fb32a2e3242e48b04a8e9524617fa, type: 2}
+  - {fileID: 11400000, guid: 693ef0656a7c4f2448bbfc4b7a20cadf, type: 2}
+  HitPoints: 0
+  AccessoriesCount: 0
+  Speed: 0
+  Mass: 0

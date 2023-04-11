@@ -4,10 +4,10 @@ namespace Codebase.ComponentScripts.Vehicle.Model
 {
     public class VehicleModel : IVehicleModel
     {
-        public string VehicleName;
-        public VehicleHPModel HealthModel;
-        public VehicleEngineModel EngineModel;
-        public List<VehicleSpringModel> SpringModels = new ();
+        public string VehicleName { get; private set; }
+        public VehicleHPModel HealthModel { get; private set; }
+        public VehicleEngineModel EngineModel { get; private set; }
+        public List<VehicleSpringModel> SpringModels { get; private set; }
 
         public VehicleModel(string name, 
             VehicleHPModel healthModel, 
@@ -16,6 +16,7 @@ namespace Codebase.ComponentScripts.Vehicle.Model
             VehicleName = name;
             HealthModel = healthModel;
             EngineModel = engineModel;
+            SpringModels = new();
         }
     }
 }
