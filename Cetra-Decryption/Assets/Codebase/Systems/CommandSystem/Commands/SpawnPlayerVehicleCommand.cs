@@ -10,15 +10,12 @@ namespace Codebase.Systems.CommandSystem.Commands
     {
         private readonly IVehicleFactory _vehicleFactory;
         private readonly IVehicleModel _model;
-        private readonly DiContainer _container;
         
         public SpawnPlayerVehicleCommand(
             IInstantiator instantiator,
             PlayerSpawnPoint playerSpawnPoint,
-            IVehicleModel vehicleModel,
-            DiContainer container)
+            IVehicleModel vehicleModel)
         {
-            _container = container;
             _vehicleFactory = new VehicleFactory(instantiator, playerSpawnPoint);
             _model = vehicleModel;
         }

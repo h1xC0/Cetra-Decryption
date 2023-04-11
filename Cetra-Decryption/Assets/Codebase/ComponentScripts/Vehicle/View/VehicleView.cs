@@ -1,31 +1,37 @@
-using System;
 using System.Collections.Generic;
-using Codebase.ComponentScripts.Vehicle.Controller;
+using System.Linq;
 using Codebase.ComponentScripts.Vehicle.Model;
 using Codebase.Systems.MVC;
+using Codebase.Systems.UnityLifecycle.Ticks;
 using UnityEngine;
 
 namespace Codebase.ComponentScripts.Vehicle.View
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class VehicleView : BaseView, IVehicleView
+    public class VehicleView : BaseView, IVehicleView, IFixedUpdateTick
     {
-        public string Id => Guid.NewGuid().ToString();
-
         [SerializeField] private List<SpringView> _springs;
         [SerializeField] private List<Transform> _wheels;
+        [SerializeField] private VehicleHpView _hitpointsView;
 
         [SerializeField] private Rigidbody _body;
 
-        public void Initialize(VehicleModel model)
+        public override void Construct()
+        {
+            
+        }
+
+        public void SetupSprings(IEnumerable<VehicleSpringModel> springs)
         {
             //TODO : Instntiate spring view
+            var springsArr = springs.ToArray();
             for (int i = 0; i < _springs.Count; i++)
             {
-                _springs[i].Initialize(model.SpringModels[i]);
+                _springs[i].Initialize(springsArr[i]);
             }
         }
 
+        //TODO: move this code to input service!
         private Vector3 GetInput()
         {
             var horizontal = Input.GetAxis("Horizontal");
@@ -41,12 +47,18 @@ namespace Codebase.ComponentScripts.Vehicle.View
 
             return Vector3.zero;
         }
-        
-        public void FixedUpdate()
+        //
+
+        public void FixedUpdateTick()
         {
             RefreshVehicleComponents();
         }
 
+        public VehicleHpView GetHitPointsView()
+        {
+            return Instantiate(_hitpointsView, transform);
+        }
+        
         private void RefreshVehicleComponents()
         {
             foreach (var spring in _springs)
@@ -55,7 +67,6 @@ namespace Codebase.ComponentScripts.Vehicle.View
             }
         }
 
-        
         public void DestroyView()
         {
             

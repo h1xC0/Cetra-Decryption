@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 398539469030028209}
   - component: {fileID: 398539469030028215}
   - component: {fileID: 398539469030028212}
-  - component: {fileID: 1465368401145495885}
+  - component: {fileID: 5963087840164818348}
   m_Layer: 6
   m_Name: Player Vehicle
   m_TagString: Untagged
@@ -279,7 +279,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.3, y: 3.0016255, z: 11.462958}
   m_Center: {x: 0, y: 0.22918725, z: 0.0120921135}
---- !u!114 &1465368401145495885
+--- !u!114 &5963087840164818348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,10 +288,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 398539469030028211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cc1fb6ade34e08ab5972f6807a03de, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a9825f3dd4943a7b8876ee2a77c879a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vehicleModelData: {fileID: 11400000, guid: 10a619725b1e71a44a7331e877dd6952, type: 2}
   _springs:
   - {fileID: 804689291098583851}
   - {fileID: 5314885712230411690}
@@ -302,10 +301,8 @@ MonoBehaviour:
   - {fileID: 4567687222087416287}
   - {fileID: 4669254172034698557}
   - {fileID: 1279022494866288372}
+  _hitpointsView: {fileID: 484803249101632596, guid: fbacb0d8c81095c48930f599a18461d6, type: 3}
   _body: {fileID: 398539469030028215}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &1221683191874731454
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
 using System;
-using Codebase.ComponentScripts.Vehicle.Controller;
 using UniRx;
 
 namespace Codebase.Systems.MVC
@@ -8,16 +7,21 @@ namespace Codebase.Systems.MVC
         where TViewContract : IView
     {
         protected CompositeDisposable CompositeDisposable = new CompositeDisposable();
-        protected TViewContract View;
+        private readonly TViewContract _view;
 
         protected BaseController(TViewContract viewContract)
         {
-            View = viewContract;
-            View.Initialize();
+            _view = viewContract;
+            _view.Construct();
+        }
+
+        protected virtual void Initialize()
+        {
         }
 
         public virtual void Dispose()
         {
+            _view.Dispose();
             CompositeDisposable.Dispose();
         }
     }
