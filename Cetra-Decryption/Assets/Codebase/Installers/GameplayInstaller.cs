@@ -1,6 +1,11 @@
+using Codebase.ComponentScripts.Vehicle.Services;
+using Codebase.ComponentScripts.VehicleInput.View;
 using Codebase.Systems.CommandSystem;
 using Codebase.Systems.CommandSystem.Commands;
 using Codebase.Systems.CommandSystem.Signals;
+using Codebase.Systems.UnityLifecycle;
+using UnityEngine;
+using Zenject;
 
 namespace Codebase.Installers
 {
@@ -8,6 +13,7 @@ namespace Codebase.Installers
     {
         public GameplayInstaller(ICommandBinder commandBinder) : base(commandBinder)
         {
+            
         }
 
         protected override void InstallComponents()
@@ -22,6 +28,7 @@ namespace Codebase.Installers
 
         protected override void InstallServices()
         {
+            Container.BindInterfacesTo<VehicleInputService>().FromNew().AsSingle();
         }
     }
 }
