@@ -12,6 +12,7 @@ namespace Codebase.ComponentScripts.Vehicle.View
     {
         [SerializeField] private List<SpringView> _springs;
         [SerializeField] private List<Transform> _wheels;
+        [SerializeField] private VehicleHpView _hitpointsView;
 
         [SerializeField] private Rigidbody _body;
 
@@ -53,6 +54,11 @@ namespace Codebase.ComponentScripts.Vehicle.View
             RefreshVehicleComponents();
         }
 
+        public VehicleHpView GetHitPointsView()
+        {
+            return Instantiate(_hitpointsView, transform);
+        }
+        
         private void RefreshVehicleComponents()
         {
             foreach (var spring in _springs)
@@ -61,7 +67,6 @@ namespace Codebase.ComponentScripts.Vehicle.View
             }
         }
 
-        
         public void DestroyView()
         {
             

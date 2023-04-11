@@ -10,6 +10,8 @@ namespace Codebase.ComponentScripts.Vehicle.Controller
         private readonly VehicleView _view;
         private readonly IVehicleModel _model;
         private readonly IUnityLifecycleService _lifecycleService;
+
+        private VehicleHpController _hpController;
         
         public VehicleController(
             VehicleView view, 
@@ -20,6 +22,7 @@ namespace Codebase.ComponentScripts.Vehicle.Controller
             _view = view;
             _model = model;
             _lifecycleService = lifecycleService;
+            _hpController = new VehicleHpController(_view.GetHitPointsView(), _model.HealthModel);
         }
 
         protected override void Initialize()

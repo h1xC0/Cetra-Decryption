@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2f0ee237531a7a4888f38f6faa7fee2, type: 2}
   - {fileID: 11400000, guid: 4b7fb32a2e3242e48b04a8e9524617fa, type: 2}
   - {fileID: 11400000, guid: 693ef0656a7c4f2448bbfc4b7a20cadf, type: 2}
-  HitPoints: 0
+  HitPoints: 20
   AccessoriesCount: 0
   Speed: 0
   Mass: 0

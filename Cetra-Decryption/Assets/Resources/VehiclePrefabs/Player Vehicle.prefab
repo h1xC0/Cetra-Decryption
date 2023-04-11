@@ -301,6 +301,7 @@ MonoBehaviour:
   - {fileID: 4567687222087416287}
   - {fileID: 4669254172034698557}
   - {fileID: 1279022494866288372}
+  _hitpointsView: {fileID: 484803249101632596, guid: fbacb0d8c81095c48930f599a18461d6, type: 3}
   _body: {fileID: 398539469030028215}
 --- !u!1 &1221683191874731454
 GameObject:
